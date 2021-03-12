@@ -16,18 +16,21 @@ const ContactForm = () => {
         <div>
           <label htmlFor="firstName">First Name*</label>
           <input
+            type="text"
             name="firstName"
             placeholder="Edd"
             ref={register({ required: true, maxLength: 3 })}
+            id="firstName"
           />
           {errors.firstName && (
-            <p>Looks like there was an error: {errors.firstName.type}</p>
+            <p id="err">Looks like there was an error: {errors.firstName.type}</p>
           )}
         </div>
 
         <div>
           <label htmlFor="lastName">Last Name*</label>
           <input
+            type="text"
             id="lastName"
             name="lastName"
             placeholder="Burke"
@@ -42,8 +45,10 @@ const ContactForm = () => {
           <label htmlFor="email">
             Email*
           </label>
-          <input name="email" 
-            id="lastName"
+          <input 
+            type="email"
+            name="email" 
+            id="email"
             placeholder="bluebill1049@hotmail.com"
             ref={register({ required: true })} 
           />
@@ -64,7 +69,11 @@ const ContactForm = () => {
             {JSON.stringify(data, null, 2)}
           </pre>
         )}
-        <input type="submit" />
+        <label htmlFor="submit"></label>
+        <input
+        id="submit"
+        name="submit" 
+        type="submit" />
       </form>
     </div>
   );
